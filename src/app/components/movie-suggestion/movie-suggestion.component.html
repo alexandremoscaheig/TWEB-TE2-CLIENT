@@ -3,6 +3,11 @@
     <h1>Suggestions</h1>
   </div>
 </div>
+<div class="row" *ngIf="movies.length === 0">
+  <div class="col-sm-12 text-center">
+    Aucune suggestion disponible. Veuillez sélectionner d'autres films sur la liste.
+  </div>
+</div>
 <div class="row">
   <div class="col-sm-3" *ngFor="let movie of movies">
     <app-movie [movie]="movie"></app-movie>

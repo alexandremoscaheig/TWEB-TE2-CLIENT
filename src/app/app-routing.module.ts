@@ -8,19 +8,15 @@ import {MovieSuggestionComponent} from './components/movie-suggestion/movie-sugg
 
 
 const PUBLIC_ROUTES = [
-  { path: 'movies', component: MovieListComponent, /** canActivate: [AnonymousGuard] **/ },
-  { path: 'upcoming', component: MovieUpcomingComponent, /** canActivate: [AnonymousGuard] **/ },
-  { path: 'suggestions', component: MovieSuggestionComponent, /** canActivate: [AnonymousGuard] **/ }
+  { path: 'movies', component: MovieListComponent },
+  { path: 'upcoming', component: MovieUpcomingComponent },
+  { path: 'suggestions', component: MovieSuggestionComponent }
 ];
 
-const SECURE_ROUTES = [
-
-];
 
 const routes: Routes = [
   { path: '', redirectTo: '/movies', pathMatch: 'full' },
   { path: '', component: PublicComponent, children: PUBLIC_ROUTES },
- // { path: '', component: SecureComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: SECURE_ROUTES}
 ];
 
 @NgModule({
