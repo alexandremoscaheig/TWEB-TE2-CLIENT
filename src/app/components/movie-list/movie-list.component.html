@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1>Movies</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3" *ngFor="let movie of movies">
+    <app-movie [movie]="movie" [selectable]="true" (isSelected)="movieSelected(movie)" (isUnSelected)="movieUnselected(movie)"></app-movie>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col-sm-12 text-center">
+    <button (click)="getMovies()" *ngIf="!isLoading && !end" class="btn btn-primary">View more</button>
+  </div>
+</div>
+

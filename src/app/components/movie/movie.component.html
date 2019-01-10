@@ -1,0 +1,7 @@
+<div [class]="'movie-wrapper ' + (movie.selected ? 'selected' : '')" (click)="toggleSelect()">
+  <img [src]="imageUrl()" />
+  <div class="overlay">
+    <div class="title">{{ movie.title }}</div>
+    <div class="sortie"><b>Release date :</b> {{ movie.release_date }}</div>
+  </div>
+</div>

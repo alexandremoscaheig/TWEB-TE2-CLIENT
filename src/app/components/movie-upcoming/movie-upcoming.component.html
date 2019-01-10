@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1>Upcoming</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3" *ngFor="let movie of upcomingMovies">
+    <app-movie [movie]="movie"></app-movie>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col-sm-12 text-center">
+    <button (click)="getUpcomingMovies()" *ngIf="!isLoading && !end" class="btn btn-primary">View more</button>
+  </div>
+</div>

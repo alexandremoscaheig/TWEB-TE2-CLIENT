@@ -1,0 +1,34 @@
+
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {MovieListComponent} from './components/movie-list/movie-list.component';
+import {PublicComponent} from './components/public/public.component';
+import {MovieUpcomingComponent} from './components/movie-upcoming/movie-upcoming.component';
+import {MovieSuggestionComponent} from './components/movie-suggestion/movie-suggestion.component';
+
+
+const PUBLIC_ROUTES = [
+  { path: 'movies', component: MovieListComponent, /** canActivate: [AnonymousGuard] **/ },
+  { path: 'upcoming', component: MovieUpcomingComponent, /** canActivate: [AnonymousGuard] **/ },
+  { path: 'suggestions', component: MovieSuggestionComponent, /** canActivate: [AnonymousGuard] **/ }
+];
+
+const SECURE_ROUTES = [
+
+];
+
+const routes: Routes = [
+  { path: '', redirectTo: '/movies', pathMatch: 'full' },
+  { path: '', component: PublicComponent, children: PUBLIC_ROUTES },
+ // { path: '', component: SecureComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: SECURE_ROUTES}
+];
+
+@NgModule({
+  exports: [
+    RouterModule
+  ],
+  imports: [
+    RouterModule.forRoot(routes)
+  ]
+})
+export class AppRoutingModule {}
